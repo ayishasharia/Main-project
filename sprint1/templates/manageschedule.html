@@ -1,0 +1,80 @@
+{% extends 'adminindex2.html' %}
+{% block body %}
+
+
+
+
+
+
+
+
+
+<body>
+
+
+<style>
+#abc {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#abc td, #abc th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+#abc tr:nth-child(even){background-color: #f2f2f2;}
+
+<!--#abc tr:hover {background-color: #ddd;}-->
+
+#abc th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: 	#006400;
+  color: white;
+
+}
+  div.scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #08c708;
+        width: 700px;
+        overflow: scroll;
+        white-space: nowrap;
+    }
+</style>
+
+<div class="ex1" style="margin-left:10%;">
+<form id="form1" name="form1" method="post" action="schedule">
+  <div align="center" style="margin-left:5%;">
+    <table width="" border="1" id="abc">
+      <tr>
+        <th width="92" scope="col">Name(doctor)</th>
+        <th width="4" scope="col">Details</th>
+        <th width="64" scope="col">Days available </th>
+        <th width="72" scope="col">From_time</th>
+        <th width="55" scope="col">To_time</th>
+        <th width="60" scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i[0]}} {{i[1]}}</td>
+        <td> &nbsp;{{i[2]}}<br>&nbsp;{{i[3]}}</td>
+        <td>&nbsp;{{i[6]}}</td>
+        <td>&nbsp;&nbsp;{{i[7]}}</td>
+        <td>&nbsp;&nbsp;{{i[8]}}</td>
+        <td><p><a href="editschedule?id={{i[4]}}" class="btn btn-primary">Edit</a></p>
+        <p><a href="deleteschedule?id={{i[0]}}" class="btn btn-danger">Delete</a></p></td>
+      </tr>
+      {% endfor %}
+      </table>
+    <p>
+      <input type="submit" name="Submit" value="Add new" style="margin-left:25%;" />
+    </p>
+  </div>
+</form>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'adminindex2.html' %}
+{% block body %}
+<style>
+#abc {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-left: 200px;
+}
+
+#abc td, #abc th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+#abc tr:nth-child(even){background-color: #f2f2f2;}
+
+<!--#abc tr:hover {background-color: #ddd;}-->
+
+#abc th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: 	#006400;
+  color: white;
+
+}
+  div.scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #08c708;
+        width: 700px;
+        overflow: scroll;
+        white-space: nowrap;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="updatedoc">
+  <table width="200" border="1" id="abc">
+    <tr>
+      <th scope="row">First name </th>
+      <td><label>
+        <input type="text" name="textfield" value="{{val[1]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Second name </th>
+      <td><label>
+        <input type="text" name="textfield2" value="{{val[2]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Gender</th>
+      <td><label>
+        <input name="radiobutton" type="radio" value="female" {% if val[3]=='female' %} checked {% endif %} />
+        female
+        <input name="radiobutton" type="radio" value="male" {% if val[3]=='male' %} checked {% endif %} />
+        male
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Qualification</th>
+      <td><label>
+        <input type="text" name="textfield3" value="{{val[4]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Specification</th>
+      <td><label>
+        <input type="text" name="textfield4" value="{{val[5]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone no </th>
+      <td><label>
+        <input type="text" name="textfield5" value="{{val[6]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><label>
+        <input type="text" name="textfield7" value="{{val[7]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><label>
+        <input type="text" name="textfield8" value="{{val[8]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><label>
+      <input type="submit" name="Submit" value="Update" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'adminindex2.html' %}
+{% block body %}
+<style>
+#abc {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: 200px;
+}
+
+#abc td, #abc th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+#abc tr:nth-child(even){background-color: #f2f2f2;}
+
+<!--#abc tr:hover {background-color: #ddd;}-->
+
+#abc th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: 	#006400;
+  color: white;
+
+}
+  div.scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #08c708;
+        width: 700px;
+        overflow: scroll;
+        white-space: nowrap;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="updateschedule1">
+  <table width="200" border="1" id="abc">
+    <tr>
+      <th scope="row">Doctor name </th>
+      <td>
+    {{val[5]}} {{val[6]}}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Days available </th>
+      <td><label>
+        <input name="checkbox" type="checkbox" id="Monday" value="monday" {% if 'monday' in val[2] %} checked {% endif %}/>
+      </label>
+        <label>
+        monday
+        <input name="checkbox" type="checkbox" id="Tuesday" value="tuesday" {% if 'tuesday' in val[2] %} checked {% endif %}/>
+        tuesday
+      </label>
+        <label>
+        <input name="checkbox" type="checkbox" id="Wednesday" value="wednesday" {% if 'wednesday' in val[2] %} checked {% endif %}/>
+        wednesday
+      </label>
+        <label>
+        <input name="checkbox" type="checkbox" id="Thursday" value="thursday" {% if 'thursday' in val[2] %} checked {% endif %}/>
+        thursday
+      </label>
+        <label>
+        <input name="checkbox" type="checkbox" id="Friday" value="friday" {% if 'friday' in val[2] %} checked {% endif %}/>
+        friday
+      </label>
+        <label>
+        <input name="checkbox" type="checkbox" id="Saturday" value="saturday" {% if 'saturday' in val[2] %} checked {% endif %}/>
+        saturday
+      </label>
+        <label>
+        <input name="checkbox" type="checkbox" id="Sunday" value="sunday" {% if 'sunday' in val[2] %} checked {% endif %}/>
+        sunday
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">From time </th>
+      <td><label>
+        <input type="time" name="textfield2" value="{{val[3]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">To time </th>
+      <td><label>
+        <input type="time" name="textfield3" value="{{val[4]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+        <input name="Add" type="submit" id="Add" value="Update" />
+      </th>
+    </tr>
+  </table>
+</form>
+{% endblock %}

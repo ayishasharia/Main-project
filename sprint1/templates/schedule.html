@@ -1,0 +1,103 @@
+{% extends 'adminindex2.html' %}
+{% block body %}
+<style>
+#abc {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-left: 200px;
+}
+
+#abc td, #abc th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+#abc tr:nth-child(even){background-color: #f2f2f2;}
+
+<!--#abc tr:hover {background-color: #ddd;}-->
+
+#abc th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: 	#006400;
+  color: white;
+
+}
+  div.scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #08c708;
+        width: 700px;
+        overflow: scroll;
+        white-space: nowrap;
+    }
+</style>
+
+
+<body>
+<form id="form1" name="form1" method="post" action="schedule1">
+  <table width="200" border="1" id="abc"  >
+    <tr>
+      <th scope="row">Doctor name </th>
+      <td><label>
+      <select name="select" required>
+        {% for i in val %}
+        <option value="{{i[9]}}">{{i[1]}} {{i[2]}}</option>
+        {% endfor %}
+      </select>
+      </label></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Days available </th>
+      <td><label>
+        <input name="check" type="checkbox" id="Monday" value="monday"  />
+      </label>
+        <label>
+        monday
+        <input name="check" type="checkbox" id="Tuesday" value="tuesday" />
+        tuesday
+      </label>
+        <label>
+        <input name="check" type="checkbox" id="Wednesday" value="wednesday" />
+        wednesday
+      </label>
+        <label>
+        <input name="check" type="checkbox" id="Thursday" value="thursday" />
+        thursday
+      </label>
+        <label>
+        <input name="check" type="checkbox" id="Friday" value="friday" />
+        friday
+      </label>
+        <label>
+        <input name="check" type="checkbox" id="Saturday" value="saturday" />
+        saturday
+      </label>
+        <label>
+        <input name="check" type="checkbox" id="Sunday" value="sunday" />
+        sunday
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">From time </th>
+      <td><label>
+        <input type="time" name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">To time </th>
+      <td><label>
+        <input type="time" name="textfield3" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+        <input name="Add" type="submit" id="Add" value="Add" align="center" />
+      </th>
+    </tr>
+  </table>
+</form>
+{% endblock %}
