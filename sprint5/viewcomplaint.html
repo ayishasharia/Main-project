@@ -1,0 +1,59 @@
+{% extends 'adminindex3.html' %}
+{% block body %}
+ <style>
+#customersd {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+#customersd td, #customersd th {
+  border: 0px;
+  padding: 8px;
+}
+#customersd tr:nth-child(even){background-color: #f2f2f2;}
+#customersd tr:hover {background-color: #ddd;}
+#customersd th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #198754;
+  color: white;
+}
+.frm-input{
+  width: 300px;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="search">
+  <div align="center">
+    <br>
+    <br>
+    <h1>Patients</h1>
+    <br>
+    <br>
+
+
+    <table width="600" border="1" align="center" id="customers">
+        <tr><th></th><th></th><th></th><th></th><input type="text" name="name"><input type="submit" value="search"></th></tr>
+
+      <tr>
+           <th width="80" scope="col">Date</th>
+        <th width="40" scope="col">Patient ID</th>
+        <th width="65" scope="col">Name</th>
+        <th width="51" scope="col">Complaint</th>
+
+
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i[3]}}</td>
+        <td>&nbsp;{{i[1]}}</td>
+        <td>&nbsp;{{i[4]}}</td>
+        <td>{{i[2]}}&nbsp;</td>
+        </tr>
+      {% endfor %}
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}
